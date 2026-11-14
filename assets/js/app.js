@@ -1,0 +1,74 @@
+const catalog = [
+ {id:"tela-brasil",name:"Tela Brasil",category:"filmes",description:"Cinema brasileiro, curtas e produções nacionais em uma plataforma pública.",source:"Tela Brasil",url:"https://www.gov.br/telabrasil/pt-br",tags:["cinema","brasil","filmes","cultura"],symbol:"▣",access:"Verificar título"},
+ {id:"itau-play",name:"Itaú Cultural Play",category:"filmes",description:"Filmes brasileiros, documentários e produções independentes.",source:"Itaú Cultural Play",url:"https://www.itauculturalplay.com.br/",tags:["cinema","brasil","documentário","cultura"],symbol:"🎞",access:"Gratuito; conferir catálogo"},
+ {id:"pluto",name:"Pluto TV",category:"filmes",description:"Canais ao vivo e catálogo sob demanda com publicidade.",source:"Pluto TV",url:"https://pluto.tv/br",tags:["filmes","séries","tv","ao vivo"],symbol:"▣",access:"Gratuito com anúncios"},
+ {id:"plex",name:"Plex",category:"filmes",description:"Filmes, séries e canais gratuitos com anúncios; catálogo pode variar por região.",source:"Plex",url:"https://watch.plex.tv/",tags:["filmes","séries","tv"],symbol:"▣",access:"Gratuito com anúncios"},
+ {id:"mercado-play",name:"Mercado Play",category:"filmes",description:"Filmes e séries gratuitos, sujeitos a disponibilidade e cadastro.",source:"Mercado Play",url:"https://play.mercadolivre.com.br/",tags:["filmes","séries"],symbol:"▶",access:"Gratuito; pode exigir conta"},
+ {id:"youtube-music",name:"YouTube",category:"musica",description:"Videoclipes, apresentações, canais de música e gravações ao vivo.",source:"YouTube",url:"https://www.youtube.com/",tags:["música","clipes","shows","playlists"],symbol:"♫",access:"Gratuito com anúncios"},
+ {id:"soundcloud",name:"SoundCloud",category:"musica",description:"Descubra artistas independentes, remixes e faixas disponibilizadas pelos criadores.",source:"SoundCloud",url:"https://soundcloud.com/",tags:["música","independente","eletrônica","remix"],symbol:"♫",access:"Plano gratuito; catálogo variável"},
+ {id:"bandcamp",name:"Bandcamp",category:"musica",description:"Explore artistas independentes, álbuns e faixas liberadas para ouvir.",source:"Bandcamp",url:"https://bandcamp.com/",tags:["música","independente","álbum"],symbol:"♫",access:"Faixas gratuitas conforme artista"},
+ {id:"jamendo",name:"Jamendo",category:"musica",description:"Catálogo de música independente com opções de escuta gratuita.",source:"Jamendo",url:"https://www.jamendo.com/",tags:["música","independente","creative commons"],symbol:"♫",access:"Gratuito conforme licença"},
+ {id:"archive-audio",name:"Internet Archive — Áudio",category:"musica",description:"Acervo de gravações, performances e materiais em domínio público ou com licenças variadas.",source:"Internet Archive",url:"https://archive.org/details/audio",tags:["música","arquivo","histórico","áudio"],symbol:"♫",access:"Verificar licença de cada item"},
+ {id:"antenna",name:"AntennaPod",category:"podcasts",description:"Aplicativo aberto para descobrir, assinar e ouvir podcasts por RSS.",source:"AntennaPod",url:"https://antennapod.org/",tags:["podcast","rss","open source"],symbol:"◖",access:"Aplicativo gratuito"},
+ {id:"spotify-podcasts",name:"Spotify",category:"podcasts",description:"Grande catálogo de podcasts; a escuta gratuita pode incluir anúncios.",source:"Spotify",url:"https://open.spotify.com/genre/podcasts-web",tags:["podcast","áudio"],symbol:"◖",access:"Plano gratuito com anúncios"},
+ {id:"apple-podcasts",name:"Apple Podcasts",category:"podcasts",description:"Diretório de programas e episódios de diferentes produtoras.",source:"Apple Podcasts",url:"https://podcasts.apple.com/br/browse",tags:["podcast","áudio"],symbol:"◖",access:"Muitos programas gratuitos"},
+ {id:"pocketcasts",name:"Pocket Casts",category:"podcasts",description:"Diretório e player de podcasts com recursos gratuitos.",source:"Pocket Casts",url:"https://pocketcasts.com/",tags:["podcast","rss","player"],symbol:"◖",access:"Plano gratuito disponível"},
+ {id:"youtube-podcasts",name:"Podcasts no YouTube",category:"podcasts",description:"Programas em vídeo e áudio publicados por criadores e produtoras.",source:"YouTube",url:"https://www.youtube.com/",tags:["podcast","entrevista","vídeo"],symbol:"◖",access:"Gratuito com anúncios"},
+ {id:"tvbrasil",name:"TV Brasil Play",category:"documentarios",description:"Produções da comunicação pública brasileira, incluindo jornalismo e documentários.",source:"TV Brasil Play",url:"https://tvbrasil.ebc.com.br/",tags:["documentário","brasil","jornalismo","cultura"],symbol:"◎",access:"Acesso gratuito; conferir título"},
+ {id:"spcine",name:"Spcine Play",category:"documentarios",description:"Filmes, curtas e obras do audiovisual brasileiro.",source:"Spcine Play",url:"https://www.spcineplay.com.br/",tags:["documentário","cinema","brasil"],symbol:"◎",access:"Catálogo gratuito; verificar região"},
+ {id:"youtube-docs",name:"Documentários no YouTube",category:"documentarios",description:"Documentários publicados por canais oficiais, instituições e produtoras.",source:"YouTube",url:"https://www.youtube.com/",tags:["documentário","ciência","história","natureza"],symbol:"◎",access:"Verificar canal e direitos"},
+ {id:"itau-docs",name:"Itaú Cultural Play",category:"documentarios",description:"Documentários e obras audiovisuais brasileiras.",source:"Itaú Cultural Play",url:"https://www.itauculturalplay.com.br/",tags:["documentário","arte","cultura","brasil"],symbol:"◎",access:"Gratuito; conferir título"},
+ {id:"libreflix",name:"Libreflix",category:"documentarios",description:"Plataforma colaborativa de obras audiovisuais livres e independentes.",source:"Libreflix",url:"https://libreflix.org/",tags:["documentário","livre","independente"],symbol:"◎",access:"Obras conforme licença"},
+ {id:"steam-free",name:"Steam — gratuitos",category:"jogos",description:"Encontre jogos free-to-play e títulos gratuitos para PC.",source:"Steam",url:"https://store.steampowered.com/genre/Free%20to%20Play/",tags:["jogos","pc","free to play"],symbol:"⌘",access:"Filtrar por gratuitos"},
+ {id:"itch",name:"itch.io",category:"jogos",description:"Jogos independentes para baixar ou jogar no navegador; muitos gratuitos ou pague quanto quiser.",source:"itch.io",url:"https://itch.io/games/free",tags:["jogos","indie","navegador","pc"],symbol:"⌘",access:"Filtrar preço gratuito"},
+ {id:"gog-free",name:"GOG — jogos gratuitos",category:"jogos",description:"Jogos para PC sem DRM; confira a seção gratuita e eventuais ofertas.",source:"GOG",url:"https://www.gog.com/en/games?priceRange=0,0",tags:["jogos","pc","sem drm"],symbol:"⌘",access:"Gratuitos permanentes e ofertas"},
+ {id:"gamejolt",name:"Game Jolt",category:"jogos",description:"Comunidade e catálogo de jogos independentes.",source:"Game Jolt",url:"https://gamejolt.com/games",tags:["jogos","indie","pc"],symbol:"⌘",access:"Verificar preço de cada jogo"},
+ {id:"crazygames",name:"CrazyGames",category:"jogos",description:"Jogos gratuitos para navegador, em diferentes gêneros.",source:"CrazyGames",url:"https://www.crazygames.com/",tags:["jogos","navegador","casual"],symbol:"⌘",access:"Gratuito com anúncios"},
+ {id:"khan",name:"Khan Academy",category:"aprendizado",description:"Cursos e exercícios gratuitos de matemática, ciências, computação e mais.",source:"Khan Academy",url:"https://pt.khanacademy.org/",tags:["ciência","matemática","aprendizado","educação"],symbol:"✳",access:"Gratuito"},
+ {id:"ted",name:"TED",category:"aprendizado",description:"Palestras curtas sobre ciência, ideias, cultura e tecnologia.",source:"TED",url:"https://www.ted.com/talks?language=pt-br",tags:["ciência","tecnologia","ideias","aprendizado"],symbol:"✳",access:"Vídeos gratuitos"},
+ {id:"mitocw",name:"MIT OpenCourseWare",category:"aprendizado",description:"Materiais de cursos universitários abertos do MIT.",source:"MIT OpenCourseWare",url:"https://ocw.mit.edu/",tags:["ciência","tecnologia","universidade","aprendizado"],symbol:"✳",access:"Materiais gratuitos"},
+ {id:"youtube-learning",name:"YouTube — educação",category:"aprendizado",description:"Aulas, tutoriais e cursos publicados por instituições e educadores.",source:"YouTube",url:"https://www.youtube.com/",tags:["aprendizado","ciência","tecnologia","aulas"],symbol:"✳",access:"Gratuito com anúncios"},
+ {id:"coursera-audit",name:"Coursera",category:"aprendizado",description:"Cursos de universidades e empresas; alguns oferecem acesso gratuito a conteúdos ou auditoria.",source:"Coursera",url:"https://www.coursera.org/",tags:["aprendizado","negócios","tecnologia"],symbol:"✳",access:"Verificar opção gratuita de cada curso"}
+];
+const sources = [
+ ["Pluto TV","Filmes, séries e canais ao vivo","https://pluto.tv/br","▣"],["Plex","Filmes, séries e canais","https://watch.plex.tv/","▣"],["Tela Brasil","Cinema brasileiro","https://www.gov.br/telabrasil/pt-br","🎞"],["YouTube","Vídeos, música e podcasts","https://www.youtube.com/","▶"],["SoundCloud","Música independente","https://soundcloud.com/","♫"],["Bandcamp","Artistas independentes","https://bandcamp.com/","♫"],["AntennaPod","Podcasts via RSS","https://antennapod.org/","◖"],["itch.io","Jogos independentes","https://itch.io/games/free","⌘"],["Khan Academy","Cursos gratuitos","https://pt.khanacademy.org/","✳"],["Internet Archive","Acervo digital","https://archive.org/","◎"]
+];
+const labels={filmes:"Filmes e séries",musica:"Música",podcasts:"Podcasts",documentarios:"Documentários",jogos:"Jogos",aprendizado:"Aprendizado"};
+const $=s=>document.querySelector(s);
+const grid=$("#contentGrid"),search=$("#searchInput"),empty=$("#emptyState");
+let activeCategory="todos",activeView="inicio";
+let favorites=new Set(JSON.parse(localStorage.getItem("openplay:favorites")||"[]"));
+let interests=JSON.parse(localStorage.getItem("openplay:interests")||"[]");
+function safeText(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function renderCatalog(){
+ let q=search.value.trim().toLocaleLowerCase("pt-BR");
+ let items=catalog.filter(x=>(activeCategory==="todos"||x.category===activeCategory)&&(activeView!=="favoritos"||favorites.has(x.id))&&(!q||[x.name,x.description,x.source,...x.tags].join(" ").toLocaleLowerCase("pt-BR").includes(q)));
+ if($("#sortSelect").value==="category")items.sort((a,b)=>a.category.localeCompare(b.category,"pt-BR")||a.name.localeCompare(b.name,"pt-BR"));
+ else items.sort((a,b)=>a.name.localeCompare(b.name,"pt-BR"));
+ grid.innerHTML=items.map(x=>`<article class="content-card"><div class="card-symbol" aria-hidden="true">${x.symbol}</div><div class="card-body"><div class="card-top"><span class="tag">${labels[x.category]}</span><button class="favorite ${favorites.has(x.id)?"saved":""}" data-favorite="${x.id}" aria-label="${favorites.has(x.id)?"Remover dos":"Adicionar aos"} favoritos">${favorites.has(x.id)?"♥":"♡"}</button></div><h3>${safeText(x.name)}</h3><p>${safeText(x.description)}</p><div class="card-bottom"><span class="source-name">${safeText(x.access)}</span><a class="open-link" href="${x.url}" target="_blank" rel="noopener noreferrer">Acessar ↗</a></div></div></article>`).join("");
+ empty.hidden=items.length>0;
+}
+function renderSources(){ $("#sourceGrid").innerHTML=sources.slice(0,5).map(s=>`<a class="source-card" href="${s[2]}" target="_blank" rel="noopener noreferrer"><span class="source-icon">${s[3]}</span><strong>${safeText(s[0])}</strong><small>${safeText(s[1])}</small></a>`).join(""); }
+function setCategory(cat){activeCategory=cat;document.querySelectorAll("[data-filter]").forEach(b=>b.classList.toggle("selected",b.dataset.filter===cat));renderCatalog();document.querySelector("#recommendations").scrollIntoView({behavior:"smooth",block:"start"});}
+document.addEventListener("click",e=>{
+ const cat=e.target.closest("[data-category]");if(cat){activeView="catalogo";setCategory(cat.dataset.category);setViewNav("catalogo");}
+ const filter=e.target.closest("[data-filter]");if(filter)setCategory(filter.dataset.filter);
+ const view=e.target.closest("[data-view]");if(view){activeView=view.dataset.view;setViewNav(activeView);if(activeView==="favoritos")activeCategory="todos";if(activeView==="fontes")$("#sourcesSection").scrollIntoView({behavior:"smooth"});else $("#recommendations").scrollIntoView({behavior:"smooth"});renderCatalog();}
+ const fav=e.target.closest("[data-favorite]");if(fav){const id=fav.dataset.favorite;favorites.has(id)?favorites.delete(id):favorites.add(id);localStorage.setItem("openplay:favorites",JSON.stringify([...favorites]));renderCatalog();}
+});
+function setViewNav(view){document.querySelectorAll(".nav-link").forEach(b=>b.classList.toggle("active",b.dataset.view===view));}
+search.addEventListener("input",renderCatalog);$("#sortSelect").addEventListener("change",renderCatalog);
+function openRecommender(){$("#recommendationResults").hidden=true;$("#recommendationDialog").showModal();}
+$("#discoverButton").addEventListener("click",openRecommender);$("#bannerDiscover").addEventListener("click",openRecommender);
+$("#preferencesButton").addEventListener("click",()=>{document.querySelectorAll('input[name="interest"]').forEach(i=>i.checked=interests.includes(i.value));$("#preferencesDialog").showModal();});
+$("#preferencesForm").addEventListener("submit",e=>{e.preventDefault();interests=[...e.currentTarget.querySelectorAll('input:checked')].map(i=>i.value);localStorage.setItem("openplay:interests",JSON.stringify(interests));$("#preferencesDialog").close();});
+$("#recommendationForm").addEventListener("submit",e=>{
+ e.preventDefault();const data=Object.fromEntries(new FormData(e.currentTarget));
+ const time=Number(data.time);let pool=catalog.filter(x=>data.time==="long"||x.category!=="filmes"||time>=60);
+ const moodTerms={leve:["comédia","música","casual"],curioso:["ciência","história","documentário"],animado:["jogos","música"],concentrado:["aprendizado","tecnologia"],tranquilo:["natureza","música","documentário"]}[data.mood]||[];
+ let ranked=pool.map(x=>({x,score:x.tags.reduce((n,t)=>n+(moodTerms.includes(t)?2:0),0)+(interests.some(i=>x.tags.join(" ").toLowerCase().includes(i.toLowerCase()))?3:0)+(data.energy==="alta"&&x.category==="jogos"?1:0)})).sort((a,b)=>b.score-a.score);
+ const picks=[],seen=new Set();for(const cat of ["filmes","musica","podcasts","jogos","documentarios"]){let match=ranked.find(r=>r.x.category===cat&&!seen.has(r.x.id));if(match){picks.push(match.x);seen.add(match.x.id);}}
+ $("#recommendationResults").innerHTML="<h3>Uma seleção para seu momento</h3>"+picks.map(x=>`<div class="recommendation-item"><span class="tag">${labels[x.category]}</span><br><strong>${safeText(x.name)}</strong><p>${safeText(x.description)}</p><a href="${x.url}" target="_blank" rel="noopener noreferrer">Encontrar na plataforma ↗</a></div>`).join("")+"<p>As sugestões são pontos de partida. Confira a disponibilidade e as condições de acesso na plataforma.</p>";
+ $("#recommendationResults").hidden=false;
+});
+renderCatalog();renderSources();
