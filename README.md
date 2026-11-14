@@ -80,7 +80,8 @@ A definir pelo mantenedor. O conteúdo de terceiros permanece sujeito aos direit
 
 ## Changelog
 
-### 2026-11-14 — 12:28 (BRT)
+### 2026-11-14 — 12:30 (BRT)
+- Atualização de `actions/configure-pages` para v6, compatível com Node.js 24.
 - Atualização do workflow: checkout v6, upload-pages-artifact v4 e runner Ubuntu 24.04.
 - Documentação da ativação inicial obrigatória do GitHub Pages e da causa do erro 404.
 
