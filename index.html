@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101713">
+  <meta name="description" content="OpenPlay: descubra e organize entretenimento gratuito e legal.">
+  <title>OpenPlay — entretenimento livre</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="OpenPlay início"><span class="brand-mark">▶</span><span>open<span>play</span></span></a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <button class="nav-link active" data-view="inicio">Início</button>
+      <button class="nav-link" data-view="catalogo">Explorar</button>
+      <button class="nav-link" data-view="favoritos">Minha biblioteca</button>
+      <button class="nav-link" data-view="fontes">Plataformas</button>
+    </nav>
+    <button class="profile-button" id="preferencesButton" title="Preferências">⚙ <span>Preferências</span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="live-dot"></span> ENTRETENIMENTO SEM ASSINATURA</div>
+        <h1>Seu próximo play<br><span>começa aqui.</span></h1>
+        <p>Descubra filmes, música, podcasts, documentários e jogos em fontes gratuitas e legais.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" id="discoverButton">✦ O que eu consumo hoje?</button>
+          <button class="button button-ghost" data-view="catalogo">Explorar catálogo <span>→</span></button>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="art-disc">▶</div><span class="art-note note-one">♫</span><span class="art-note note-two">✦</span><span class="art-note note-three">▣</span>
+      </div>
+      <div class="hero-foot"><span>GRATUITO • LEGAL • PERSONALIZÁVEL</span><span>DESCUBRA ALGO NOVO <b>↗</b></span></div>
+    </section>
+
+    <section class="quick-stats" aria-label="Categorias">
+      <button class="stat-card" data-category="filmes"><span class="stat-icon">▣</span><strong>Filmes e séries</strong><small>Para assistir</small></button>
+      <button class="stat-card" data-category="musica"><span class="stat-icon">♫</span><strong>Música</strong><small>Para ouvir</small></button>
+      <button class="stat-card" data-category="podcasts"><span class="stat-icon">◖</span><strong>Podcasts</strong><small>Para acompanhar</small></button>
+      <button class="stat-card" data-category="documentarios"><span class="stat-icon">◎</span><strong>Documentários</strong><small>Para descobrir</small></button>
+      <button class="stat-card" data-category="jogos"><span class="stat-icon">⌘</span><strong>Jogos</strong><small>Para jogar</small></button>
+      <button class="stat-card" data-category="aprendizado"><span class="stat-icon">✳</span><strong>Aprendizado</strong><small>Para evoluir</small></button>
+    </section>
+
+    <section class="section-block" id="recommendations">
+      <div class="section-heading"><div><span class="eyebrow">PONTO DE PARTIDA</span><h2>Explore possibilidades</h2></div><button class="text-button" data-view="catalogo">Ver catálogo completo ↗</button></div>
+      <div class="category-pills" id="categoryPills">
+        <button class="pill selected" data-filter="todos">Tudo</button>
+        <button class="pill" data-filter="filmes">Filmes e séries</button>
+        <button class="pill" data-filter="musica">Música</button>
+        <button class="pill" data-filter="podcasts">Podcasts</button>
+        <button class="pill" data-filter="documentarios">Documentários</button>
+        <button class="pill" data-filter="jogos">Jogos</button>
+        <button class="pill" data-filter="aprendizado">Aprendizado</button>
+      </div>
+      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Busque por título, tema ou plataforma..." autocomplete="off"></label><select id="sortSelect" aria-label="Ordenar catálogo"><option value="name">Ordem alfabética</option><option value="category">Categoria</option></select></div>
+      <div class="content-grid" id="contentGrid" aria-live="polite"></div>
+      <p class="empty-state" id="emptyState" hidden>Nenhum resultado encontrado. Tente outro termo ou categoria.</p>
+    </section>
+
+    <section class="feature-banner">
+      <div><span class="eyebrow">ESCOLHA SEM FICAR ROLANDO</span><h2>Não sabe o que escolher?</h2><p>Conte quanto tempo você tem e qual é o seu clima hoje. O OpenPlay ajuda a encontrar um próximo play.</p></div>
+      <button class="button button-primary" id="bannerDiscover">Encontrar algo para mim <span>→</span></button>
+    </section>
+
+    <section class="section-block sources-section" id="sourcesSection">
+      <div class="section-heading"><div><span class="eyebrow">ACESSO DIRETO</span><h2>Plataformas para explorar</h2></div><button class="text-button" data-view="fontes">Todas as plataformas ↗</button></div>
+      <div class="source-grid" id="sourceGrid"></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">▶</span><span>open<span>play</span></span></a><p>Descubra. Organize. Dê o play.</p><small>OpenPlay é um guia independente. Os conteúdos pertencem às respectivas plataformas e titulares.</small><small>© 2026 OpenPlay · <a href="https://github.com/mpjbiologo/openplay" target="_blank" rel="noopener">Código aberto no GitHub</a></small></footer>
+
+  <dialog id="recommendationDialog" class="dialog">
+    <form method="dialog" class="dialog-close"><button aria-label="Fechar">×</button></form>
+    <span class="eyebrow">RECOMENDAÇÃO PERSONALIZADA</span><h2>O que combina com seu momento?</h2>
+    <form id="recommendationForm">
+      <label>Qual é o seu humor?<select name="mood"><option value="leve">Quero algo leve</option><option value="curioso">Estou curioso</option><option value="animado">Quero energia</option><option value="concentrado">Quero me concentrar</option><option value="tranquilo">Quero relaxar</option></select></label>
+      <label>Quanto tempo você tem?<select name="time"><option value="15">Até 15 minutos</option><option value="30">Até 30 minutos</option><option value="60">Até 1 hora</option><option value="120">Até 2 horas</option><option value="long">Mais de 2 horas</option></select></label>
+      <label>Como está sua energia?<select name="energy"><option value="baixa">Baixa</option><option value="media" selected>Média</option><option value="alta">Alta</option></select></label>
+      <label>Você está...<select name="company"><option value="solo">Sozinho</option><option value="companhia">Acompanhado</option><option value="qualquer">Tanto faz</option></select></label>
+      <button class="button button-primary full-button" type="submit">Encontrar recomendações ✦</button>
+    </form>
+    <div id="recommendationResults" class="recommendation-results" hidden></div>
+  </dialog>
+
+  <dialog id="preferencesDialog" class="dialog">
+    <form method="dialog" class="dialog-close"><button aria-label="Fechar">×</button></form>
+    <span class="eyebrow">PERSONALIZAÇÃO</span><h2>Seus interesses</h2>
+    <p>Marque os assuntos e gêneros que gostaria de encontrar com mais frequência.</p>
+    <form id="preferencesForm">
+      <div class="check-grid">
+        <label><input type="checkbox" name="interest" value="ciência"> Ciência</label><label><input type="checkbox" name="interest" value="tecnologia"> Tecnologia e IA</label><label><input type="checkbox" name="interest" value="história"> História</label><label><input type="checkbox" name="interest" value="natureza"> Natureza</label><label><input type="checkbox" name="interest" value="comédia"> Comédia</label><label><input type="checkbox" name="interest" value="suspense"> Suspense</label><label><input type="checkbox" name="interest" value="drama"> Drama</label><label><input type="checkbox" name="interest" value="música"> Música</label><label><input type="checkbox" name="interest" value="jogos"> Jogos</label><label><input type="checkbox" name="interest" value="aprendizado"> Aprendizado</label>
+      </div>
+      <button class="button button-primary full-button" type="submit">Salvar preferências</button>
+    </form>
+  </dialog>
+
+  <script src="./assets/js/app.js" defer></script>
+  <script>if ('serviceWorker' in navigator && location.protocol.startsWith('http')) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {})); }</script>
+</body>
+</html>
