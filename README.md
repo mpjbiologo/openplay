@@ -32,13 +32,18 @@ Depois acesse `http://localhost:8000`.
 
 ## Publicar com GitHub Pages
 
-1. Abra **Settings → Pages** no repositório.
-2. Em **Build and deployment**, selecione **GitHub Actions** como fonte.
-3. O workflow `.github/workflows/pages.yml` publicará automaticamente a cada atualização da branch `main`.
-4. Acompanhe a execução em **Actions → Deploy OpenPlay to GitHub Pages**.
-5. O endereço esperado será https://mpjbiologo.github.io/openplay/.
+**Ativação inicial obrigatória (uma única vez):**
 
-Não há etapa de build nem dependências de instalação. A primeira publicação depende de habilitar GitHub Actions em Settings → Pages.
+1. Abra [Settings → Pages](https://github.com/mpjbiologo/openplay/settings/pages) no repositório.
+2. Em **Build and deployment**, localize **Source** e selecione **GitHub Actions**.
+3. Salve, se o GitHub solicitar.
+
+Depois disso, o workflow `.github/workflows/pages.yml` publicará automaticamente a cada atualização da branch `main), ou poderá ser iniciado manualmente em **Actions → Deploy OpenPlay to GitHub Pages → Run workflow**.
+
+- Acompanhe as execuções em [Actions](https://github.com/mpjbiologo/openplay/actions).
+- O endereço esperado será https://mpjbiologo.github.io/openplay/.
+
+**Importante:** o workflow não consegue criar o site Pages pela primeira vez usando apenas o `GITHUB_TOKEN`. Se o Pages ainda não estiver habilitado, a etapa `configure-pages` recebe `404 Not Found`. É necessário fazer a ativação inicial nas configurações do repositório, com permissão de administrador. Depois, os próximos deploys serão automáticos.
 
 ## Estrutura
 
@@ -74,6 +79,10 @@ Nesta versão, favoritos e preferências ficam no armazenamento local do navegad
 A definir pelo mantenedor. O conteúdo de terceiros permanece sujeito aos direitos e licenças de seus respectivos titulares.
 
 ## Changelog
+
+### 2026-11-14 — 12h (BRT)
+- Atualização do workflow: checkout v6, upload-pages-artifact v4 e runner Ubuntu 24.04.
+- Documentação da ativação inicial obrigatória do GitHub Pages e da causa do erro 404.
 
 ### 2026-11-14
 - Criação da estrutura inicial do OpenPlay.
