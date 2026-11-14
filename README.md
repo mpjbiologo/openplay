@@ -38,7 +38,7 @@ Depois acesse `http://localhost:8000`.
 2. Em **Build and deployment**, localize **Source** e selecione **GitHub Actions**.
 3. Salve, se o GitHub solicitar.
 
-Depois disso, o workflow `.github/workflows/pages.yml` publicará automaticamente a cada atualização da branch `main), ou poderá ser iniciado manualmente em **Actions → Deploy OpenPlay to GitHub Pages → Run workflow**.
+Depois disso, o workflow `.github/workflows/pages.yml` publicará automaticamente a cada atualização da branch `main`, ou poderá ser iniciado manualmente em **Actions → Deploy OpenPlay to GitHub Pages → Run workflow**.
 
 - Acompanhe as execuções em [Actions](https://github.com/mpjbiologo/openplay/actions).
 - O endereço esperado será https://mpjbiologo.github.io/openplay/.
@@ -80,7 +80,7 @@ A definir pelo mantenedor. O conteúdo de terceiros permanece sujeito aos direit
 
 ## Changelog
 
-### 2026-11-14 — 12h (BRT)
+### 2026-11-14 — 12:28 (BRT)
 - Atualização do workflow: checkout v6, upload-pages-artifact v4 e runner Ubuntu 24.04.
 - Documentação da ativação inicial obrigatória do GitHub Pages e da causa do erro 404.
 
