@@ -33,12 +33,12 @@ Depois acesse `http://localhost:8000`.
 ## Publicar com GitHub Pages
 
 1. Abra **Settings → Pages** no repositório.
-2. Em **Build and deployment**, escolha **Deploy from a branch**.
-3. Selecione a branch `main` e a pasta `/ (root)`.
-4. Salve e aguarde a publicação.
+2. Em **Build and deployment**, selecione **GitHub Actions** como fonte.
+3. O workflow `.github/workflows/pages.yml` publicará automaticamente a cada atualização da branch `main`.
+4. Acompanhe a execução em **Actions → Deploy OpenPlay to GitHub Pages**.
 5. O endereço esperado será https://mpjbiologo.github.io/openplay/.
 
-Não há etapa de build nem dependências de instalação.
+Não há etapa de build nem dependências de instalação. A primeira publicação depende de habilitar GitHub Actions em Settings → Pages.
 
 ## Estrutura
 
